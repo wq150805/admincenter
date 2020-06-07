@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>公告</title>
+  <script src="../../static/js/vue.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="../../static/js/element-ui.js"></script>
+  <link rel="stylesheet" href="../../static/css/reset.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <script src="../common/menu.js"></script>
+  <script src="../common/header.js"></script>
+  <script src="../../static/js/common.js"></script>
+</head>
+<body>
+<div class="page_box" id="app">
+  <left-menu :first='3' :second="0"></left-menu>
+  <div class="container">
+    <my-header></my-header>
+    <div class="main_box">
+      <div class="location">
+        <span>当前位置：</span>
+        <span class="first_menu">系统公告  <i class="el-icon-arrow-right"></i>  公告管理</span>
+      </div>
+      <div class="detail_box">
+        <div class="operate_box">
+          <div class="item_box">
+            <div class="operate_item">
+              <label>关键词：</label>
+              <el-input type="text" placeholder="请输关键词" v-model="keyword"></el-input>
+            </div>
+            <div class="operate_item">
+              <span class="operate_btn search_btn" @click="getTableInfo(1)">查询</span>
+              <span class="operate_btn reset_btn" @click="resetTable">重置</span>
+            </div>
+          </div>
+        </div>
+        <div class="table_box">
+          <el-table
+                  v-loading="loading"
+                  :header-cell-style="tableHeader"
+                  ref="multipleTable"
+                  :data="tableInfo"
+                  tooltip-effect="dark"
+                  style="width: 100%">
+            <el-table-column
+                    prop="id"
+                    width="80"
+                    label="ID">
+            </el-table-column>
+            <el-table-column
+                    prop="updatedTime"
+                    label="更新时间" :formatter="formatTime">
+            </el-table-column>
+            <el-table-column
+                    label="内容">
+              <template slot-scope="scope">
+                <p>{{scope.row.content?scope.row.content:'—'}}</p>
+              </template>
+            </el-table-column>
+            <el-table-column
+                    label="定时发送">
+              <template slot-scope="scope">
+                <p>{{scope.row.send?scope.row.send:'—'}}</p>
+              </template>
+            </el-table-column>
+            <el-table-column
+                    label="状态">
+              <template slot-scope="scope">
+                <div class="status_show">
+                  <span v-if="scope.row.status"><i class="green"></i>正常</span>
+                  <span v-else><i class="red"></i>禁用</span>
+                </div>
+              </template>
+            </el-table-column>
+            <el-table-column
+                    label="备注">
+              <template slot-scope="scope">
+                <p>{{scope.row.mark?scope.row.mark:'—'}}</p>
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+        <div class="record_page">
+          <el-pagination
+                  @size-change="sizeChange"
+                  @current-change="getTableInfo"
+                  background
+                  :current-page="currentPage"
+                  :page-sizes="[10, 20, 30, 40]"
+                  :page-size="pageSize"
+                  layout="prev, pager, next, sizes,jumper"
+                  :total="totals">
+          </el-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            currentPage: 1,
+            pageSize: 10,
+            totals: 1,
+            loading: false,
+            tableInfo: [],
+            keyword: '',
+        },
+        mounted: function () {
+
+        },
+
+        methods: {
+            getTableInfo(page){
+
+            },
+
+            resetTable(){
+                this.keyword = '';
+                this.getTableInfo(1)
+            },
+
+            // 设置每页显示条数
+            sizeChange(val) {
+                this.pageSize = val;
+                this.getTableInfo(1);
+            },
+
+            formatTime(row, column) {
+                return transformTime(row.updatedTime)
+            },
+        }
+    })
+</script>
+</html>

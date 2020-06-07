@@ -1,0 +1,137 @@
+.logo {
+    text-align: center;
+    line-height: 65px;
+    height: 65px;
+    font-size: 24px;
+    background: #1a61be;
+    color: #fff;
+}
+
+.menus {
+    position: fixed;
+    bottom: 0;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    color: #fff;
+    z-index: 10;
+}
+
+.menus ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0 0 0;
+}
+
+.menus ul li {
+    cursor: pointer;
+}
+
+.menus ul li p {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 16px;
+    color: rgba(156, 168, 180, 1);
+    line-height: 25px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.menus ul li p:hover {
+    background: #E4E7ED;
+}
+
+.menus ul li .choose:hover {
+    background: rgba(109, 163, 233, 0.47);
+}
+
+.menus ul li p img {
+    margin-right: 17px;
+    height: 25px;
+}
+
+.menus ul li .menu_tips {
+    width: 22%;
+    position: absolute;
+    right: 21%;
+    top: 4%;
+}
+
+.menus ul li p i {
+    position: absolute;
+    display: block;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: url("../../static/img/goto1.png") no-repeat;
+    background-size: 100% 100%;
+    transition: 1s all;
+}
+
+.menus ul li p .goto {
+    background: url("../../static/img/goto.png") no-repeat;
+    background-size: 100% 100%;
+    transform: rotate(90deg) translateX(-50%);
+}
+
+.menus ul li .choose {
+    background: rgba(109, 163, 233, 0.47);
+    color: #fff;
+    border-left: 4px solid #6a93d6;
+}
+
+.menus ul li .choose img {
+    filter: grayscale(80%);
+}
+
+.menus ul li .choose .menu_tips {
+    filter: none;
+}
+
+.menus .child a {
+    display: block;
+    line-height: 50px;
+    font-size: 16px;
+    padding-left: 62px;
+    color: rgba(156, 168, 180, 1);
+}
+
+.menus .child a:hover {
+    color: #6DA3E9;
+}
+
+.menus .child .choose_child {
+    color: #6DA3E9;
+}
+
+/*header*/
+.page_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 65px;
+    /*border-bottom: 8px solid #F0F2F5;*/
+    padding: 0 30px 0 20px;
+    background: #3784e8;
+    z-index: 5;
+}
+
+.set {
+    height: 100%;
+    line-height: 65px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.set a {
+    color: #fff;
+    border-left: 2px solid #fff;
+    margin-left: 10px;
+    padding-left: 10px;
+}

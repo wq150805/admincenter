@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用户管理</title>
+  <script src="../../static/js/vue.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="../../static/js/element-ui.js"></script>
+  <link rel="stylesheet" href="../../static/css/reset.css">
+  <link rel="stylesheet" href="../../static/css/common.css">
+  <script src="../common/menu.js"></script>
+  <script src="../common/header.js"></script>
+</head>
+<style scoped>
+
+</style>
+<body>
+  <div class="page_box" id="app">
+    <left-menu :first='2' :second="0"></left-menu>
+    <div class="container">
+      <my-header></my-header>
+    </div>
+  </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+        },
+        mounted: function () {
+
+        },
+
+        methods: {
+
+        }
+    })
+</script>
+</html>
